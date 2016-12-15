@@ -1,4 +1,6 @@
 (function () {
+  var delayTime = document.getElementById('delayTimeInput').value;
+
   'use strict';
    var alarmName = 'remindme';
    function checkAlarm(callback) {
@@ -18,7 +20,7 @@
    }
    function createAlarm() {
      chrome.alarms.create(alarmName, {
-       delayInMinutes: 0.1, periodInMinutes: 0.1});
+       delayInMinutes: (delayTime - 1), periodInMinutes: 1});
    }
    function cancelAlarm() {
      chrome.alarms.clear(alarmName);
